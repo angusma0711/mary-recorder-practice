@@ -91,7 +91,7 @@
    q('.rec-progress span').style.width = `${Math.max(0, Math.min(1, now / total)) * 100}%`;
    if (shown) return;
    const index = notes.findIndex(n => now < n.start + n.beats);
-   const n = notes[Math.max(0, index)] ?? notes[notes.length - 1];
+   const n = index < 0 ? notes[notes.length - 1] : notes[index];
    const after = notes[notes.indexOf(n) + 1];
    finger(n.name, after?.name);
   }
