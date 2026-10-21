@@ -1,0 +1,56 @@
+/* Recorder instruction and play-along. Stage is a fixed 1600×900 canvas. */
+.slide.rec-slide{justify-content:flex-start;gap:16px;padding:40px 88px 70px;background:#fffaf0}
+.rec-head{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.rec-head h2{margin:0;font-size:50px;white-space:nowrap}
+.rec-controls{display:flex;gap:12px}
+.rec-controls button{white-space:nowrap;font-size:26px;min-height:58px;padding:8px 18px}
+.rec-controls [aria-pressed="false"]{background:#fde2d8}
+.rec-progress{height:14px;border-radius:8px;background:#e5e1d6;overflow:hidden}
+.rec-progress span{display:block;height:100%;width:0;background:#7cc744;transition:width .1s linear}
+.rec-lane{display:flex;height:420px;background:#fff;border-radius:18px;box-shadow:inset 0 0 0 2px #e9e2d1;overflow:hidden}
+.rec-rows{display:flex;flex-direction:column;width:96px;flex:none;border-right:2px solid #e9e2d1}
+.rec-row-label{flex:1;border-radius:0;min-height:0;padding:0;font-size:46px;font-weight:800;font-family:Georgia,serif;background:#fff;color:var(--c);border-bottom:2px solid #f1ece0}
+.rec-row-label:last-child{border-bottom:0}
+.rec-window{position:relative;flex:1;overflow:hidden;background:repeating-linear-gradient(to bottom,transparent 0 calc(33.333% - 2px),#f1ece0 calc(33.333% - 2px) 33.333%)}
+.rec-hit{position:absolute;left:250px;top:0;bottom:0;width:6px;margin-left:-3px;background:#bd512c;border-radius:3px;z-index:2;box-shadow:0 0 0 6px #bd512c22}
+.rec-blocks{position:absolute;inset:0}
+.rec-block{position:absolute;left:0;height:33.333%;padding:14px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;will-change:transform}
+.rec-block:before{content:"";position:absolute;inset:14px 0;border-radius:22px;background:var(--c);opacity:.88;box-shadow:0 5px 0 var(--d)}
+.rec-block b,.rec-block small{position:relative;color:#fff;line-height:1;text-shadow:0 2px 0 #0003}
+.rec-block b{font-size:46px;font-family:Georgia,serif}
+.rec-block small{font-size:27px;font-weight:700;margin-top:4px}
+.rec-block.now:before{opacity:1;box-shadow:0 5px 0 var(--d),0 0 0 6px #fff,0 0 0 11px var(--c)}
+.rec-block.past{opacity:.25}
+.rec-status{flex:1 1 0;min-width:0;overflow:hidden;text-overflow:ellipsis;text-align:right;margin:0;font-size:28px;font-weight:800;color:#007b83;white-space:nowrap}
+.rec-bottom{display:flex;align-items:center;gap:22px}
+.rec-recorder{flex:1;height:190px}
+.rec-recorder circle{fill:#fff;stroke:#7b6a45;stroke-width:3}
+.rec-recorder .on circle,.rec-recorder circle.on{fill:var(--c);stroke:#143c48;stroke-width:4}
+.rec-recorder text{font-size:22px;font-weight:700;fill:#5d5240}
+.rec-thumb circle{stroke-dasharray:6 4}
+.rec-thumb.on circle{stroke-dasharray:none}
+.rec-badge{flex:none;width:170px;height:170px;border-radius:50%;background:var(--c,#4a86e8);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 6px 0 #0002}
+.rec-now{font-size:84px;font-weight:800;font-family:Georgia,serif;line-height:1}
+.rec-next{font-size:20px;font-weight:700}
+.rec-enable{position:absolute;left:50%;top:46%;transform:translateX(-50%);z-index:5;background:#bd512c;color:#fff;font-size:34px}
+
+/* Pitch notation plus front/back fingering, before the existing B A G practice. */
+.slide.rec-note-slide{justify-content:center;align-items:center;padding:50px 88px 70px;background:#fffaf0;gap:50px}
+.rec-note-pair{width:100%;display:flex;flex-direction:column;gap:70px}
+.rec-note-slide .rec-recorder{flex:none;width:100%;height:130px;overflow:visible}
+
+@font-face{font-family:RecNotation;src:url("./Bravura.woff2") format("woff2");font-display:block}
+.rec-note-notation{display:block;flex:none;width:620px;height:280px;background:#fff;border-radius:22px;overflow:visible}
+.rec-staff-lines{stroke:#78949b;stroke-width:2.2}
+.rec-music-glyph{font-family:RecNotation;fill:#143c48}
+.rec-pitch-name{font-family:Georgia,serif;font-size:84px;font-weight:700}
+
+/* The supplied score is the default Mary view; play-along remains available. */
+.rec-score-panel{display:none;width:100%;height:610px;margin:0;flex:none}
+.rec-score-panel img{display:block;width:100%;height:100%;object-fit:contain}
+.rec-mary .rec-head h2{font-size:42px}
+.rec-mary .rec-status{display:none}
+.rec-mary .rec-controls{gap:8px}
+.rec-mary .rec-controls button{font-size:24px;padding:8px 13px}
+.rec-mary.rec-score-view .rec-score-panel{display:block}
+.rec-mary.rec-score-view .rec-progress,.rec-mary.rec-score-view .rec-lane,.rec-mary.rec-score-view .rec-bottom{display:none}
