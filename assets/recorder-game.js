@@ -63,7 +63,7 @@
     <button type="button" class="primary" data-rec="play">▶ 開始</button><button type="button" data-rec="restart">↺ 重來</button>
     <button type="button" data-rec="tempo">速度：中</button><button type="button" data-rec="sound" aria-pressed="true">🔊 示範</button>${songId === 'mary' ? '<button type="button" data-rec="score" aria-pressed="true">跟奏畫面</button>' : ''}</div></div>
    ${songId === 'mary' ? '<figure class="rec-score-panel"><img src="assets/mary-had-a-little-lamb-score.svg?v=mary-score-1" alt="瑪莉有隻小綿羊：教師原稿重繪五線譜，四四拍，八小節，音名 B、A、G"></figure>' : ''}
-   <img class="rec-lamb" src="assets/lamb-gouache.png" alt="" aria-hidden="true"><div class="rec-progress"><span></span></div>
+   <img class="rec-lamb" src="assets/lamb-gouache.png" alt="" aria-hidden="true"><div class="rec-progress"><span></span></div><div class="rec-count-in" hidden aria-hidden="true"><span></span></div>
    <div class="rec-lane"><div class="rec-rows">${ROWS.map(r => `<button type="button" class="rec-row-label" data-show="${r}" style="--c:${NOTES[r].color}">${r}</button>`).join('')}</div>
     <div class="rec-window"><div class="rec-hit"></div><div class="rec-blocks">${notes.map((n, i) => `<div class="rec-block" data-i="${i}" style="--c:${NOTES[n.name].color};--d:${NOTES[n.name].dark};top:${ROWS.indexOf(n.name) * 33.333}%;width:${n.beats * PX_PER_BEAT - 12}px"><b>${n.name}</b></div>`).join('')}</div></div></div>
    <div class="rec-bottom">${recorderSVG()}<div class="rec-badge"><span class="rec-now">B</span><small class="rec-next"></small></div></div>
@@ -99,9 +99,11 @@
   function tick() {
    position = (performance.now() - startedAt) / 1000 * bpm() / 60 - COUNT_IN;
    if (position < 0) {
-    const count = Math.floor(position + COUNT_IN) + 1;
+    const count = Math.min(COUNT_IN, Math.floor(position + COUNT_IN) + 1);
+    q('.rec-count-in').hidden = false; q('.rec-count-in span').textContent = count;
     if (count !== lastCount) { lastCount = count; setStatus(`預備 ${count}`); tone(count === 1 ? 1600 : 1200, .05, .12); }
    } else {
+    q('.rec-count-in').hidden = true;
     const index = notes.findIndex(n => position >= n.start && position < n.start + n.beats);
     if (index >= 0 && index !== lastNote) { lastNote = index; if (sound) tone(NOTES[notes[index].name].freq, notes[index].beats * 60 / bpm() * .9); }
     setStatus(sound ? '聽一聽' : '一起吹！');
@@ -130,7 +132,7 @@
    q('[data-rec="play"]').textContent = '⏸ 暫停';
    frame = requestAnimationFrame(tick);
   }
-  function stop() { playing = false; cancelAnimationFrame(frame); silence(); }
+  function stop() { q('.rec-count-in').hidden = true; playing = false; cancelAnimationFrame(frame); silence(); }
   function pause() { stop(); q('[data-rec="play"]').textContent = '▶ 繼續'; setStatus('已暫停'); }
   function restart() { stop(); shown = null; position = -COUNT_IN; q('[data-rec="play"]').textContent = '▶ 開始'; setStatus('按「開始」'); draw(); }
   function cycleTempo() {

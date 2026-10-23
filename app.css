@@ -20,3 +20,6 @@ body{background:linear-gradient(135deg,#e6f2ef 0%,#fbf6eb 48%,#fff0d3 100%)}
 .rec-score-view .rec-lamb{display:block}
 .rec-mary.rec-score-view .rec-status{right:340px;color:#49786a;text-align:left}
 body:fullscreen{background:#faf5e9}
+
+/* Four preparation beats, centered without blocking the controls. */
+.rec-count-in{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:10;width:230px;height:230px;border-radius:50%;display:grid;place-items:center;background:#fffaf0f5;border:7px solid #e3ad3b;box-shadow:0 8px 36px #173c432e;pointer-events:none;color:#087e87;font-size:160px;font-weight:850;line-height:1;font-variant-numeric:tabular-nums}
