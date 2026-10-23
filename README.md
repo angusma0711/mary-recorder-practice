@@ -1,4 +1,4 @@
-# Mary Had a Little Lamb — B A G 直笛練習
+# Mary Had a Little Lamb — B A G 牧童笛練習
 
 獨立靜態 web app，由現有 P3 第二課的 Mary 練習匯出。沒有 Firebase、登入、麥克風、評分或資料收集，不依賴外部 CDN。
 
