@@ -45,7 +45,7 @@
    const x = 470 + i * 105;
    return n >= 6 ? `<g data-hole="${n}"><circle cx="${x - 9}" cy="70" r="9"/><circle cx="${x + 11}" cy="70" r="12"/></g>` : `<circle data-hole="${n}" cx="${x}" cy="70" r="${n === 3 ? 19 : 21}"/>`;
   }).join('');
-  return `<svg class="rec-recorder" viewBox="0 0 1424 150" role="img" aria-label="直笛指法">
+  return `<svg class="rec-recorder" viewBox="0 0 1424 150" role="img" aria-label="牧童笛指法">
    <path d="M30 48 Q30 30 60 30 L250 36 L1240 44 Q1300 40 1330 30 Q1372 34 1376 70 Q1372 106 1330 110 Q1300 100 1240 96 L250 104 L60 110 Q30 110 30 92 Z" fill="#fbf6e9" stroke="#cdbf9c" stroke-width="3"/>
    <rect x="70" y="56" width="70" height="28" rx="6" fill="#e6dcc3"/><line x1="360" y1="38" x2="360" y2="102" stroke="#d9cdb0" stroke-width="3"/><line x1="1180" y1="42" x2="1180" y2="98" stroke="#d9cdb0" stroke-width="3"/>
    <g class="rec-thumb" data-hole="0"><circle cx="300" cy="70" r="23"/><text x="300" y="131" text-anchor="middle">拇指（背面）</text></g>
