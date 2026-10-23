@@ -79,6 +79,8 @@
 <line class="staff" x1="28" y1="480" x2="1410" y2="480"/>
 <line class="staff" x1="28" y1="500" x2="1410" y2="500"/>
 <text class="music" x="46" y="480" font-size="80">&#xE050;</text>
+<text class="music" x="125" y="440" font-size="80">&#xE084;</text>
+<text class="music" x="125" y="480" font-size="80">&#xE084;</text>
 <line class="bar" x1="190" y1="420" x2="190" y2="500"/>
 <g data-note="B" data-beats="1"><text class="pitch" text-anchor="middle" x="228" y="371">B</text>
 <ellipse cx="228" cy="460" rx="14" ry="9" transform="rotate(-18 228 460)" fill="#143c48" stroke="#143c48" stroke-width="2.5"/>
