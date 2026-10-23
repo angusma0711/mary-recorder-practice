@@ -63,9 +63,9 @@
     <button type="button" class="primary" data-rec="play">▶ 開始</button><button type="button" data-rec="restart">↺ 重來</button>
     <button type="button" data-rec="tempo">速度：中</button><button type="button" data-rec="sound" aria-pressed="true">🔊 示範</button>${songId === 'mary' ? '<button type="button" data-rec="score" aria-pressed="true">跟奏畫面</button>' : ''}</div></div>
    ${songId === 'mary' ? '<figure class="rec-score-panel"><img src="assets/mary-had-a-little-lamb-score.svg?v=mary-score-1" alt="瑪莉有隻小綿羊：教師原稿重繪五線譜，四四拍，八小節，音名 B、A、G"></figure>' : ''}
-   <div class="rec-progress"><span></span></div>
+   <img class="rec-lamb" src="assets/lamb-gouache.png" alt="" aria-hidden="true"><div class="rec-progress"><span></span></div>
    <div class="rec-lane"><div class="rec-rows">${ROWS.map(r => `<button type="button" class="rec-row-label" data-show="${r}" style="--c:${NOTES[r].color}">${r}</button>`).join('')}</div>
-    <div class="rec-window"><div class="rec-hit"></div><div class="rec-blocks">${notes.map((n, i) => `<div class="rec-block" data-i="${i}" style="--c:${NOTES[n.name].color};--d:${NOTES[n.name].dark};top:${ROWS.indexOf(n.name) * 33.333}%;width:${n.beats * PX_PER_BEAT - 12}px"><b>${n.name}</b>${n.lyric ? `<small>${n.lyric}</small>` : ''}</div>`).join('')}</div></div></div>
+    <div class="rec-window"><div class="rec-hit"></div><div class="rec-blocks">${notes.map((n, i) => `<div class="rec-block" data-i="${i}" style="--c:${NOTES[n.name].color};--d:${NOTES[n.name].dark};top:${ROWS.indexOf(n.name) * 33.333}%;width:${n.beats * PX_PER_BEAT - 12}px"><b>${n.name}</b></div>`).join('')}</div></div></div>
    <div class="rec-bottom">${recorderSVG()}<div class="rec-badge"><span class="rec-now">B</span><small class="rec-next"></small></div></div>
    <button type="button" class="rec-enable" hidden>點此啟用聲音</button>`;
   const q = s => section.querySelector(s);

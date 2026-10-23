@@ -1,2 +1,22 @@
 :root{font-family:system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;color:#173c43;background:#eef3ef}*{box-sizing:border-box}body{margin:0;height:100dvh;display:flex;flex-direction:column}button{font:inherit;min-height:44px;border:1px solid #a9beb7;border-radius:10px;padding:8px 15px;background:#fff;color:#173c43;font-weight:650;cursor:pointer;touch-action:manipulation}button:focus-visible,a:focus-visible{outline:4px solid #d68b29;outline-offset:3px}.primary{background:#176970;color:#fff;border-color:#176970}.app-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 24px}.app-header strong{font-size:22px}.app-header span{display:block;font-size:14px;color:#516b66}.app-header>div:last-child{display:flex;gap:8px}#viewport{position:relative;flex:1;min-height:240px;display:flex;align-items:center;justify-content:center;overflow:hidden}#canvas{position:relative;width:1600px;height:900px;flex:none;transform-origin:center}.slide{position:relative;width:1600px;height:900px;display:flex;flex-direction:column;overflow:hidden}.slide .rec-head{flex-wrap:wrap}.rec-head h2{flex:1}.rec-controls{flex:none}.rec-score-panel{height:640px}.rec-slide{gap:16px}.rec-mary .rec-head h2{font-size:42px}footer{text-align:center;font-size:15px;padding:12px 20px;color:#516b66}dialog{max-width:640px;max-height:85dvh;border:1px solid #a9beb7;border-radius:18px;padding:28px;color:#173c43;line-height:1.7}dialog::backdrop{background:#102b35a8}dialog h1{font-size:26px;margin-top:0}dialog li{margin:8px 0}a{color:#176970}[hidden]{display:none!important}body:fullscreen{background:#eef3ef}body:fullscreen .app-header,body:fullscreen footer{display:none}body:fullscreen #viewport{height:100dvh}@media(max-width:600px){.app-header{padding:10px;align-items:flex-start}.app-header strong{font-size:18px}.app-header span{font-size:12px}.app-header button{font-size:14px;padding:8px}footer{font-size:12px;padding:8px}}@media(prefers-reduced-motion:reduce){.rec-progress span{transition:none}.rec-block{will-change:auto}}
 .rec-mary .rec-status{display:block;position:absolute;bottom:22px;left:88px;right:88px;text-align:center;font-size:28px;line-height:1.3;min-height:38px}
+
+/* Warm, quiet P3 picture-book styling; notation remains the focal point. */
+:root{background:#faf5e9;color:#183f4a}
+body{background:linear-gradient(135deg,#e6f2ef 0%,#fbf6eb 48%,#fff0d3 100%)}
+.app-header{justify-content:flex-end;padding:10px 20px;background:transparent}
+.app-header button{background:#fffaf0;border-color:#aac5bd;border-radius:16px}
+.slide.rec-slide{background:linear-gradient(180deg,#fffaf0 0%,#fffaf0 82%,#edf2df 100%);border:2px solid #e6ddc7;border-radius:32px;box-shadow:0 10px 30px #315e4920}
+.rec-mary .rec-head h2{color:#ac4b3b;font-weight:800;letter-spacing:.01em}
+.rec-controls button{border-radius:16px;border-color:#b7c9bd;background:#fffdf5;color:#185e64}
+.rec-controls .primary{background:#087e87;border-color:#087e87;color:white}
+.rec-controls [aria-pressed="false"]{background:#fae2d7}
+.rec-score-panel{height:600px;border-radius:24px;overflow:hidden;box-shadow:0 3px 16px #27473c0a}
+.rec-lane{border:2px solid #ccddd2;border-radius:24px}
+.rec-progress{background:#dce9df}
+.rec-progress span{background:#e3ad3b}
+.rec-block b{font-size:58px}
+.rec-lamb{display:none;position:absolute;right:88px;bottom:12px;width:224px;height:173px;object-fit:contain;pointer-events:none}
+.rec-score-view .rec-lamb{display:block}
+.rec-mary.rec-score-view .rec-status{right:340px;color:#49786a;text-align:left}
+body:fullscreen{background:#faf5e9}
